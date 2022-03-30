@@ -22,12 +22,11 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.get('/',async function(req,res){
     let chapter;
+    const client = await pool.connect();
     if(req.body.chapter){
         chapter = req.body.chapter;
-        const client = await pool.connect();
-        const result = await client.query(`UPDATE main_table SET chapter = `+ chapter +`;`);
+        await client.query(`UPDATE main_table SET chapter = `+ chapter +`;`);
     } else {
-        const client = await pool.connect();
         const result = await client.query('SELECT * FROM main_table;');
         chapter = result.rows[0].chapter;
     }
