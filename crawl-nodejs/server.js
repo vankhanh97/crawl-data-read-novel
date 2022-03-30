@@ -32,7 +32,7 @@ app.get('/',function(req,res){
 app.get('/db', async (req, res) => {
     try {
         const client = await pool.connect();
-        const result = await client.query('INSERT INTO TABLE main_table (chapter) values (1);');
+        const result = await client.query('INSERT INTO main_table (chapter) values (1);');
         const results = { 'results': (result) ? result.rows : null};
         res.render('/', results );
         client.release();
