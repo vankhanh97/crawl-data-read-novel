@@ -20,7 +20,7 @@ app.use(
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
-app.get('/',async function(req,res){
+app.post('/',async function(req,res){
     let chapter;
     const client = await pool.connect();
     if(req.body.chapter){
