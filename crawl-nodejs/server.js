@@ -14,8 +14,10 @@ const pool = new Pool({
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
-app.get('/',function(req,res){
-    request('https://m.truyencv.vn/truyen/ta-chi-muon-an-tinh-lam-cau-dao-ben-trong-nguoi/chuong-132/', (error, response, html) => {
+app.get('/',async function(req,res){
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM main_table;');
+    request('https://m.truyencv.vn/truyen/ta-chi-muon-an-tinh-lam-cau-dao-ben-trong-nguoi/chuong-'+result+'git /', (error, response, html) => {
     }).then((data) => {
         const $ = cheerio.load(data); // load HTML
 
@@ -29,16 +31,16 @@ app.get('/',function(req,res){
         });
     })
 });
-app.get('/db', async (req, res) => {
+/*app.get('/db', async (req, res) => {
     try {
-        const client = await pool.connect();
-        const result = await client.query('SELECT * FROM main_table;');
+        const client = pool.connect();
+        const result = client.query('SELECT * FROM main_table;');
         console.log(result)
     } catch (err) {
         console.error(err);
         res.send("Error " + err);
     }
-})
+})*/
 app.use('/', router);
 const port = process.env.PORT || '3000';
 app.listen(port, () => console.log(`Server started on Port ${port}`));
