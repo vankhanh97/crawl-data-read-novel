@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.get('/',async function(req,res){
     let chapter;
     const client = await pool.connect();
-    if(req.body.chapter){
+    if(req.query.chapter){
         chapter = req.query.chapter;
         await client.query(`UPDATE main_table SET chapter = `+ chapter +`;`);
     } else {
@@ -42,7 +42,7 @@ app.get('/',async function(req,res){
             title1: text1,
             title2: text2,
             content: text3,
-            chapter: req.query.chapter,
+            chapter: chapter,
         });
     })
     client.release();
