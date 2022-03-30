@@ -42,7 +42,7 @@ app.get('/',async function(req,res){
             title1: text1,
             title2: text2,
             content: text3,
-            chapter: chapter,
+            chapter: req.query.chapter,
         });
     })
     client.release();
