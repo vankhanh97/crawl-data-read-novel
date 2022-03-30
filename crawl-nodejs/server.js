@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.get('/',async function(req,res){
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM main_table;');
-    let chapter = result[0].chapter;
+    let chapter = result.rows[0].chapter;
     request('https://m.truyencv.vn/truyen/ta-chi-muon-an-tinh-lam-cau-dao-ben-trong-nguoi/chuong-'+1, (error, response, html) => {
     }).then((data) => {
         const $ = cheerio.load(data); // load HTML
