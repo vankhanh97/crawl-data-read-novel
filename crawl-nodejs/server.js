@@ -24,7 +24,7 @@ app.get('/',async function(req,res){
     let chapter;
     const client = await pool.connect();
     if(req.body.chapter){
-        chapter = req.body.chapter;
+        chapter = req.query.chapter;
         await client.query(`UPDATE main_table SET chapter = `+ chapter +`;`);
     } else {
         const result = await client.query('SELECT * FROM main_table;');

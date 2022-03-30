@@ -30,9 +30,9 @@
 <p><%= title2 %></p>
 <p><%= content %></p>
 <div class="button-fixed" >
-    <form method="post" id="form">
-        <button type="button" class="btn btn-success btn-chapter" data-type="next">Lui</button>
-        <button type="button" class="btn btn-success btn-chapter" data-type="previous">Tới</button>
+    <form method="get" id="form">
+        <button type="button" class="btn btn-success btn-chapter" data-type="previous">Lui</button>
+        <button type="button" class="btn btn-success btn-chapter" data-type="next">Tới</button>
         <input type="hidden" name="chapter" value="<%= chapter %>">
     </form>
 </div>
