@@ -31,17 +31,19 @@ app.get('/',async function(req,res){
             content: text3
         });
     })
+    client.release();
 });
-/*app.get('/db', async (req, res) => {
+app.get('/db', async (req, res) => {
     try {
         const client = pool.connect();
         const result = client.query('SELECT * FROM main_table;');
         console.log(result)
+        client.release();
     } catch (err) {
         console.error(err);
         res.send("Error " + err);
     }
-})*/
+})
 app.use('/', router);
 const port = process.env.PORT || '3000';
 app.listen(port, () => console.log(`Server started on Port ${port}`));
