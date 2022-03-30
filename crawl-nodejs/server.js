@@ -32,9 +32,9 @@ app.get('/',function(req,res){
 app.get('/db', async (req, res) => {
     try {
         const client = await pool.connect();
-        const result = await client.query('SELECT * FROM test_table');
+        const result = await client.query('CREATE TABLE main_table (chapter varchar)');
         const results = { 'results': (result) ? result.rows : null};
-        res.render('pages/db', results );
+        res.render('/', results );
         client.release();
     } catch (err) {
         console.error(err);
