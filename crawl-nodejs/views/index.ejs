@@ -15,7 +15,6 @@
         line-break: normal;
         text-align: initial;
         background: gainsboro;
-        white-space: pre-line;
     }
     .button-fixed {
         z-index: 10000;
@@ -29,7 +28,7 @@
 <body>
 <p><%= title1 %></p>
 <p><%= title2 %></p>
-<p><%= content %></p>
+<p style="white-space: pre-line"><%= content %></p>
 <div class="button-fixed" >
     <form method="get" id="form">
         <button type="button" class="btn btn-success btn-chapter" data-type="previous">Lui</button>
