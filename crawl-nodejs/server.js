@@ -37,7 +37,7 @@ app.get('/',async function(req,res){
 
         let text1 = $('.css-rz9p0m').text();
         let text2 = $('.css-400zec').text();
-        let text3 = $('.e1vvrs4i1').text().replaceAll('."','.1"\n');
+        let text3 = $('.e1vvrs4i1').text().replaceAll('."','.1" + \r\n');
         res.render('index', {
             title1: text1,
             title2: text2,
