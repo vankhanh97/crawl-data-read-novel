@@ -38,7 +38,7 @@ app.get('/',async function(req,res){
         let text1 = $('.nh-read__title').text();
         console.log(text1)
         // let text2 = $('.nh-read__title').text();
-        let text3 = $('.nh-read__content').text();
+        let text3 = $('.nh-read__content').text().replaceAll('."','."\n');
         console.log(text3)
         res.render('index', {
             title1: text1,
