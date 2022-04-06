@@ -58,7 +58,8 @@
     $(document).on('keypress', '.btn-go', function (e) {
         if(e.which==13){
             e.preventDefault();
-            let $targetInput = $('.btn-go').val();
+            let $targetInput = $('input[type="hidden"][name="chapter"]');
+            $targetInput.val($('.btn-go').val());
             $('#form').submit();
         }
     })
