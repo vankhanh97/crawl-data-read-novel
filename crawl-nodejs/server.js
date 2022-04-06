@@ -36,8 +36,10 @@ app.get('/',async function(req,res){
         const $ = cheerio.load(data); // load HTML
 
         let text1 = $('.nh-read__title').text();
+        console.log(text1)
         // let text2 = $('.nh-read__title').text();
         let text3 = $('.nh-read__content').text();
+        console.log(text3)
         res.render('index', {
             title1: text1,
             // title2: text2,
