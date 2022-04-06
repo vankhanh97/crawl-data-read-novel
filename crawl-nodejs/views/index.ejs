@@ -32,6 +32,7 @@
 <div class="button-fixed" >
     <form method="get" id="form">
         <button type="button" class="btn btn-success btn-chapter" data-type="previous">Lui</button>
+        <input type="text" class="btn-go" data-type="index">
         <button type="button" class="btn btn-success btn-chapter" data-type="next">Tới</button>
         <input type="hidden" name="chapter" value="<%= chapter %>">
     </form>
@@ -52,6 +53,11 @@
         } else {
             $targetInput.val(currChapter - 1);
         }
+        $('#form').submit();
+    });
+    $(document).on('keypress', '.btn-go', function (e) {
+        e.preventDefault();
+        let $targetInput = $('.btn-go').val();
         $('#form').submit();
     })
 </script>
