@@ -34,11 +34,11 @@ app.get('/',async function(req,res){
     request('https://metruyenchu.com/truyen/ta-chi-muon-an-tinh-lam-cau-dao-ben-trong-nguoi/chuong-'+chapter, (error, response, html) => {
     }).then((data) => {
         const $ = cheerio.load(data); // load HTML
-        const regExp = /(?<=[a-z0-9A-z])([.])(?=[a-z0-9A-z])/g;
+        // const regExp = /(?<=[a-z0-9A-z])([.])(?=[a-z0-9A-z])/g;
         let text1 = $('.nh-read__title').text();
         // let text2 = $('.nh-read__title').text();
         let text3 = $('.nh-read__content').text().replaceAll('."','."\n').replaceAll('. ','.\n');
-        console.log(text3.replaceAll(regExp,'.\n'))
+        // console.log(text3.replaceAll(regExp,'.\n'))
         res.render('index', {
             title1: text1,
             // title2: text2,
