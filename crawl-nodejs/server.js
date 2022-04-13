@@ -37,8 +37,7 @@ app.get('/',async function(req,res){
         // const regExp = /(?<=[a-z0-9A-z])([.])(?=[a-z0-9A-z])/g;
         let text1 = $('.nh-read__title').text();
         // let text2 = $('.nh-read__title').text();
-        let text3 = $('.nh-read__content').text().replaceAll('.','.  ').replaceAll('. . .','. . .+\n');
-        console.log(text3)
+        let text3 = $('.nh-read__content').text();
         // console.log(text3.replaceAll(regExp,'.\n'))
         res.render('index', {
             title1: text1,
