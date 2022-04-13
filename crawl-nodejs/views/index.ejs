@@ -63,6 +63,9 @@
             $targetInput.val($('.btn-go').val());
             $('#form').submit();
         }
+    });
+
+    $(document).on('onkeydown', function (e) {
         if (e.which==39){
             e.preventDefault();
             let $targetInput = $('input[type="hidden"][name="chapter"]');
