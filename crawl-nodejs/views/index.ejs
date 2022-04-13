@@ -65,7 +65,7 @@
         }
     });
 
-    $(document).on('keypress', 'body', function (e) {
+    $(document).keypress('body', function (e) {
         if (e.which==39){
             e.preventDefault();
             let $targetInput = $('input[type="hidden"][name="chapter"]');
