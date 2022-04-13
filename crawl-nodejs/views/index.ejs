@@ -31,9 +31,9 @@
 <p style="white-space: pre-line"><%= content %></p>
 <div class="button-fixed" >
     <form method="get" id="form">
-        <button type="button" class="btn btn-success btn-chapter" data-type="previous">Lui</button>
+        <button id="next" type="button" class="btn btn-success btn-chapter" data-type="previous">Lui</button>
         <input type="text" style="height: 40px;width: 40px" class="btn-go" data-type="index">
-        <button type="button" class="btn btn-success btn-chapter" data-type="next">Tới</button>
+        <button id="pre" type="button" class="btn btn-success btn-chapter" data-type="next">Tới</button>
         <input type="hidden" name="chapter" value="<%= chapter %>">
     </form>
 </div>
@@ -66,19 +66,11 @@
     });
 
     $(document).keypress(function(e){
-        if (e.which==37){
-            e.preventDefault();
-            let $targetInput = $('input[type="hidden"][name="chapter"]');
-            let currChapter = Number($targetInput.val());
-            $targetInput.val(currChapter - 1);
-            $('#form').submit();
-        }
         if (e.which==39){
-            e.preventDefault();
-            let $targetInput = $('input[type="hidden"][name="chapter"]');
-            let currChapter = Number($targetInput.val());
-            $targetInput.val(currChapter + 1);
-            $('#form').submit();
+            $('#next').click();
+        }
+        if (e.which==37) {
+            $('#pre').click();
         }
     });
 </script>
