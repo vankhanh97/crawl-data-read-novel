@@ -65,7 +65,7 @@
         }
     });
 
-    $(document).keypress(function(e){
+    $(document).keydown(function(e){
         if (e.which==39){
             $('#next').click();
         }
@@ -73,7 +73,7 @@
             $('#pre').click();
         }
     });
-    $(document).keypress(function(){
+    $(document).keydown(function(){
         console.log(1)
     });
 </script>
