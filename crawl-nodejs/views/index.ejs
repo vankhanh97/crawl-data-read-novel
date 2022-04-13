@@ -65,10 +65,7 @@
         }
     });
 
-    $(document).keypress('body', function (e) {
-        if (e.which==39){
-
-        }
+    $(document).keypress(function(e){
         if (e.which==37){
             e.preventDefault();
             let $targetInput = $('input[type="hidden"][name="chapter"]');
@@ -76,12 +73,13 @@
             $targetInput.val(currChapter - 1);
             $('#form').submit();
         }
-    })
-
-    $(document).keypress(function(){
-
-            console.log(1)
-
+        if (e.which==39){
+            e.preventDefault();
+            let $targetInput = $('input[type="hidden"][name="chapter"]');
+            let currChapter = Number($targetInput.val());
+            $targetInput.val(currChapter + 1);
+            $('#form').submit();
+        }
     });
 </script>
 </html>
