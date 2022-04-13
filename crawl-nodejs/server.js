@@ -36,12 +36,10 @@ app.get('/',async function(req,res){
         const $ = cheerio.load(data); // load HTML
         // const regExp = /(?<=[a-z0-9A-z])([.])(?=[a-z0-9A-z])/g;
         let text1 = $('.nh-read__title').text();
-        // let text2 = $('.nh-read__title').text();
-        let text3 = $('.nh-read__content').text();
+        let text3 = $('.nh-read__content').text().replaceAll('."','."' +'<br>');
         // console.log(text3.replaceAll(regExp,'.\n'))
         res.render('index', {
             title1: text1,
-            // title2: text2,
             content: text3,
             chapter: chapter,
         });
