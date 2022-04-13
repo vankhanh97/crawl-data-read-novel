@@ -67,11 +67,7 @@
 
     $(document).keypress('body', function (e) {
         if (e.which==39){
-            e.preventDefault();
-            let $targetInput = $('input[type="hidden"][name="chapter"]');
-            let currChapter = Number($targetInput.val());
-            $targetInput.val(currChapter + 1);
-            $('#form').submit();
+
         }
         if (e.which==37){
             e.preventDefault();
@@ -81,5 +77,11 @@
             $('#form').submit();
         }
     })
+
+    $(document).ready(function(){
+        $("body").keypress(function(){
+            console.log(1)
+        });
+    });
 </script>
 </html>
